@@ -47,9 +47,9 @@ export default function Result() {
 
             {/* Top bar */}
             <div className="border-b border-white/5 px-8 py-6 flex items-center justify-between">
-                <span className="text-white font-bold text-xl">
+                <Link href="/" className="text-white font-bold text-xl hover:opacity-80 transition-all">
                     Audit<span className="text-green-400">Pass</span>
-                </span>
+                </Link>
                 <span className="text-gray-500 text-sm">
                     Generated for <span className="text-white font-semibold">{formData.companyName}</span>
                 </span>
@@ -68,8 +68,8 @@ export default function Result() {
                                 key={policy}
                                 onClick={() => setActivePolicy(policy)}
                                 className={`w-full text-left px-3 py-2.5 rounded-lg text-sm transition-all ${activePolicy === policy
-                                        ? 'bg-green-400/10 text-green-400 font-semibold'
-                                        : 'text-gray-400 hover:bg-white/5'
+                                    ? 'bg-green-400/10 text-green-400 font-semibold'
+                                    : 'text-gray-400 hover:bg-white/5'
                                     }`}
                             >
                                 {policy}
