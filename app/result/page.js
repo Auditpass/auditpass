@@ -170,6 +170,28 @@ export default function Result() {
                 </div>
 
             </div>
+
+            {/* FOOTER */}
+            <footer className="px-8 py-10 border-t border-white/5 flex flex-col items-center gap-6">
+                <span className="text-white font-bold">
+                    Audit<span className="text-green-400">Pass</span>
+                </span>
+
+                <div className="flex flex-wrap items-center justify-center gap-6 text-xs text-gray-500">
+                    <Link href="/privacy" className="hover:text-white transition-all">Privacy</Link>
+                    <Link href="/terms" className="hover:text-white transition-all">Terms</Link>
+                    <Link href="/refund-policy" className="hover:text-white transition-all">Refunds</Link>
+                    <Link href="/contact" className="hover:text-white transition-all">Contact</Link>
+                </div>
+
+                <p className="text-gray-600 text-xs text-center max-w-md">
+                    Not legal advice. AuditPass generates policy templates to accelerate your compliance journey.
+                </p>
+
+                <p className="text-gray-600 text-xs">
+                    © 2026 AuditPass
+                </p>
+            </footer>
         </main>
     )
 }
