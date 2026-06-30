@@ -1,0 +1,640 @@
+{
+    "Access Control Policy": {
+        "controls": {
+            "SOC 2": "CC6.1, CC6.2, CC6.3",
+            "ISO 27001": "A.9.1.1, A.9.2.1, A.9.4.1",
+            "GDPR": "Article 32",
+            "HIPAA": "164.312(a)(1)"
+        },
+        "purpose": "This policy establishes the requirements for granting, reviewing, and revoking access to {{companyName}}'s information systems, applications, and data. The objective is to ensure that access is granted only to authorized individuals based on the principle of least privilege.",
+        "scope": "This policy applies to all employees, contractors, and third parties who require access to {{companyName}} systems, including production environments, internal tools, source code repositories, and customer data.",
+        "sections": [
+            {
+                "heading": "Access Provisioning",
+                "body": "Access to systems and data is granted only after approval from the employee's manager and the Security Officer. New employees receive access based on their role using a documented access matrix. Access requests outside the standard role are reviewed on a case-by-case basis and logged."
+            },
+            {
+                "heading": "Principle of Least Privilege",
+                "body": "Employees are granted the minimum level of access required to perform their job duties. Administrative or elevated privileges are granted only when justified by business need and are reviewed quarterly."
+            },
+            {
+                "heading": "Authentication Requirements",
+                "body": "All systems require unique user IDs for each individual. Shared accounts are prohibited. Multi-factor authentication (MFA) is required for access to production systems, cloud infrastructure, and any system storing customer data."
+            },
+            {
+                "heading": "Access Review",
+                "body": "User access rights are reviewed at least quarterly by the Security Officer to confirm that access remains appropriate. Any discrepancies identified during review are remediated within 5 business days."
+            },
+            {
+                "heading": "Access Revocation",
+                "body": "Upon termination or role change, access is revoked or modified within 24 hours by IT/Security. A termination checklist is used to confirm all system access has been removed, including SSO, email, cloud infrastructure, and physical access where applicable."
+            },
+            {
+                "heading": "Password Requirements",
+                "body": "Passwords must be a minimum of 12 characters and are required to be unique per system. Password managers are provided to all employees to support strong credential hygiene. Passwords must not be shared or reused across systems."
+            }
+        ]
+    },
+    "Incident Response Plan": {
+        "controls": {
+            "SOC 2": "CC7.3, CC7.4",
+            "ISO 27001": "A.16.1.1, A.16.1.4, A.16.1.5",
+            "GDPR": "Article 33, Article 34",
+            "HIPAA": "164.308(a)(6)"
+        },
+        "purpose": "This policy defines {{companyName}}'s approach to identifying, responding to, and recovering from information security incidents in a timely and effective manner, minimizing impact to operations, customers, and data.",
+        "scope": "This policy applies to all employees, systems, and third-party vendors involved in detecting, reporting, or responding to a security incident affecting {{companyName}} infrastructure or data.",
+        "sections": [
+            {
+                "heading": "Incident Classification",
+                "body": "Incidents are classified by severity: Critical (active data breach or system compromise), High (attempted breach or major system outage), Medium (policy violation or suspicious activity), and Low (minor anomalies). Classification determines response timeline and escalation path."
+            },
+            {
+                "heading": "Detection and Reporting",
+                "body": "Employees are required to report any suspected security incident to the Security Officer immediately upon discovery. Automated monitoring tools are used to detect anomalies in production systems and alert the on-call engineer."
+            },
+            {
+                "heading": "Response Procedure",
+                "body": "Upon detection, the Incident Response Team assesses the scope and severity of the incident, contains the threat, and begins remediation. Critical incidents require containment within 1 hour of confirmation. All actions taken are documented in the incident log."
+            },
+            {
+                "heading": "Communication and Notification",
+                "body": "If an incident involves a confirmed data breach affecting customer data, affected customers and relevant regulatory bodies are notified in accordance with applicable law, generally within 72 hours of confirmation."
+            },
+            {
+                "heading": "Post-Incident Review",
+                "body": "Following resolution of any Critical or High severity incident, a post-incident review is conducted within 5 business days to determine root cause and identify preventive measures. Findings are documented and tracked to completion."
+            },
+            {
+                "heading": "Testing and Training",
+                "body": "The Incident Response Plan is tested at least annually through a tabletop exercise. All employees receive incident reporting training as part of onboarding and annual security awareness training."
+            }
+        ]
+    },
+    "Risk Assessment Policy": {
+        "controls": {
+            "SOC 2": "CC3.1, CC3.2, CC3.4",
+            "ISO 27001": "6.1.2, 8.2, 8.3",
+            "GDPR": "Article 35",
+            "HIPAA": "164.308(a)(1)(ii)(A)"
+        },
+        "purpose": "This policy establishes the methodology by which {{companyName}} identifies, evaluates, and treats risks to its information systems, data, and business operations.",
+        "scope": "This policy applies to all systems, applications, vendors, and business processes that could pose a risk to the confidentiality, integrity, or availability of {{companyName}} data.",
+        "sections": [
+            {
+                "heading": "Risk Identification",
+                "body": "Risks are identified through a combination of vulnerability scanning, vendor due diligence, employee reporting, and review of system architecture. Identified risks are logged in the risk register with a description, source, and affected asset."
+            },
+            {
+                "heading": "Risk Assessment Methodology",
+                "body": "Each identified risk is scored based on likelihood (1-5) and impact (1-5), producing a risk rating used to prioritize remediation. Risks scoring above the defined threshold require a documented treatment plan."
+            },
+            {
+                "heading": "Risk Treatment",
+                "body": "For each identified risk, {{companyName}} determines whether to accept, mitigate, transfer, or avoid the risk. Mitigation plans include an assigned owner and target remediation date."
+            },
+            {
+                "heading": "Risk Register Maintenance",
+                "body": "The risk register is reviewed and updated at least quarterly by the Security Officer. New risks identified through audits, incidents, or vendor changes are added promptly."
+            },
+            {
+                "heading": "Annual Risk Assessment",
+                "body": "A formal, comprehensive risk assessment of the organization's systems, vendors, and processes is conducted at least annually, with results reported to leadership."
+            }
+        ]
+    },
+    "Data Backup Policy": {
+        "controls": {
+            "SOC 2": "A1.2, A1.3",
+            "ISO 27001": "A.12.3.1",
+            "HIPAA": "164.308(a)(7)(ii)(A)"
+        },
+        "purpose": "This policy defines the requirements for backing up {{companyName}}'s critical data and systems to ensure availability and recoverability in the event of data loss, corruption, or system failure.",
+        "scope": "This policy applies to all production databases, customer data, and critical business systems hosted on {{serverLocation}}.",
+        "sections": [
+            {
+                "heading": "Backup Frequency",
+                "body": "Production databases are backed up automatically on a daily basis, with incremental backups occurring continuously where supported by the underlying infrastructure. Backup frequency is reviewed annually to ensure it meets recovery objectives."
+            },
+            {
+                "heading": "Backup Storage and Encryption",
+                "body": "All backups are encrypted at rest using industry-standard encryption (AES-256) and stored in a geographically separate location from the primary production environment to protect against regional outages."
+            },
+            {
+                "heading": "Retention Period",
+                "body": "Daily backups are retained for 30 days. Weekly backups are retained for 90 days. Backups beyond the retention period are securely deleted in accordance with data minimization principles."
+            },
+            {
+                "heading": "Backup Testing",
+                "body": "Backup restoration is tested at least quarterly to confirm data integrity and recoverability. Results of restoration tests are documented, including time to restore and any issues encountered."
+            },
+            {
+                "heading": "Disaster Recovery",
+                "body": "In the event of a system failure or data loss, {{companyName}} targets a Recovery Time Objective (RTO) of 4 hours and a Recovery Point Objective (RPO) of 24 hours for critical systems."
+            }
+        ]
+    },
+    "Information Security Policy": {
+        "controls": {
+            "SOC 2": "CC1.1, CC2.1",
+            "ISO 27001": "5.1, 5.2",
+            "GDPR": "Article 32",
+            "HIPAA": "164.308(a)(1)(i)"
+        },
+        "purpose": "This policy establishes {{companyName}}'s overarching commitment to protecting the confidentiality, integrity, and availability of information assets, and serves as the foundation for all subordinate security policies.",
+        "scope": "This policy applies to all employees, contractors, systems, and data owned or processed by {{companyName}}.",
+        "sections": [
+            {
+                "heading": "Security Governance",
+                "body": "{{companyName}} has designated a Security Officer responsible for the development, implementation, and enforcement of this and all related security policies. The Security Officer reports security posture to leadership on a regular basis."
+            },
+            {
+                "heading": "Policy Framework",
+                "body": "This Information Security Policy is supported by subordinate policies covering access control, incident response, risk assessment, data backup, and vendor management. All policies are reviewed and approved by leadership at least annually."
+            },
+            {
+                "heading": "Employee Responsibilities",
+                "body": "All employees and contractors are required to comply with this policy as a condition of employment or engagement. Employees receive security awareness training upon onboarding and annually thereafter."
+            },
+            {
+                "heading": "Compliance and Enforcement",
+                "body": "Violations of this policy may result in disciplinary action up to and including termination of employment or contract. {{companyName}} monitors compliance through periodic audits and access reviews."
+            },
+            {
+                "heading": "Policy Review",
+                "body": "This policy is reviewed at least annually, or following a significant change to the business, infrastructure, or regulatory environment, to ensure it remains current and effective."
+            }
+        ]
+    },
+    "Vendor Management Policy": {
+        "controls": {
+            "SOC 2": "CC9.2",
+            "ISO 27001": "A.15.1.1, A.15.2.1",
+            "GDPR": "Article 28"
+        },
+        "purpose": "This policy defines the process by which {{companyName}} evaluates, onboards, and monitors third-party vendors and service providers to ensure they meet appropriate security and privacy standards before being granted access to company systems or data.",
+        "scope": "This policy applies to all third-party vendors, subprocessors, and service providers that store, process, or have access to {{companyName}} systems or data, including cloud infrastructure providers, SaaS tools, and contracted service providers.",
+        "sections": [
+            {
+                "heading": "Vendor Risk Classification",
+                "body": "Vendors are classified based on the sensitivity of data they access and the criticality of the service provided. Vendors with access to customer data or production systems are classified as high-risk and subject to enhanced due diligence."
+            },
+            {
+                "heading": "Vendor Due Diligence",
+                "body": "Before onboarding, high-risk vendors are required to provide evidence of their security posture, such as a SOC 2 report, ISO 27001 certification, or completed security questionnaire. {{companyName}} reviews this evidence prior to granting access to any systems or data."
+            },
+            {
+                "heading": "Contractual Requirements",
+                "body": "Vendor agreements include data protection clauses, confidentiality obligations, and, where applicable, a Data Processing Agreement (DPA) consistent with applicable privacy regulations."
+            },
+            {
+                "heading": "Ongoing Monitoring",
+                "body": "High-risk vendors are reassessed at least annually. {{companyName}} maintains a vendor inventory documenting each vendor's risk classification, data access level, and last review date."
+            },
+            {
+                "heading": "Vendor Offboarding",
+                "body": "When a vendor relationship ends, access to all systems and data is revoked promptly, and any data held by the vendor is confirmed deleted or returned in accordance with the contractual agreement."
+            }
+        ]
+    },
+    "Data Classification Policy": {
+        "controls": {
+            "SOC 2": "CC6.1",
+            "ISO 27001": "A.8.2.1, A.8.2.2, A.8.2.3",
+            "GDPR": "Article 5"
+        },
+        "purpose": "This policy establishes a framework for classifying {{companyName}}'s data based on sensitivity, ensuring that appropriate handling, storage, and access controls are applied based on classification level.",
+        "scope": "This policy applies to all data created, stored, processed, or transmitted by {{companyName}}, including customer data, employee data, and internal business information.",
+        "sections": [
+            {
+                "heading": "Classification Levels",
+                "body": "Data is classified into four levels: Public (no impact if disclosed), Internal (low impact, for employee use only), Confidential (moderate impact, includes business and customer data), and Restricted (high impact, includes credentials, PII, and payment data)."
+            },
+            {
+                "heading": "Handling Requirements by Classification",
+                "body": "Confidential and Restricted data must be encrypted both at rest and in transit. Access to Restricted data is limited to employees with an explicit business need and requires additional approval beyond standard access provisioning."
+            },
+            {
+                "heading": "Labeling and Identification",
+                "body": "Systems and repositories containing Confidential or Restricted data are documented in the data inventory, identifying the classification level, location, and owner of each dataset."
+            },
+            {
+                "heading": "Data Sharing",
+                "body": "Confidential and Restricted data may only be shared externally with parties who have signed an appropriate confidentiality or data processing agreement, and only for a legitimate business purpose."
+            },
+            {
+                "heading": "Disposal",
+                "body": "Data classified as Confidential or Restricted is securely deleted using industry-standard methods when it is no longer needed, in accordance with the company's data retention schedule."
+            }
+        ]
+    },
+    "Change Management Policy": {
+        "controls": {
+            "SOC 2": "CC8.1",
+            "ISO 27001": "A.12.1.2",
+            "HIPAA": "164.312(c)(1)"
+        },
+        "purpose": "This policy defines the process for proposing, reviewing, testing, and deploying changes to {{companyName}}'s production systems and applications to minimize the risk of unintended impact, downtime, or security exposure.",
+        "scope": "This policy applies to all changes to production code, infrastructure configuration, and systems that handle customer data or are critical to business operations.",
+        "sections": [
+            {
+                "heading": "Change Request Process",
+                "body": "All changes to production systems are documented, including a description of the change, the reason for the change, and the expected impact. Changes are tracked through the company's version control and deployment system."
+            },
+            {
+                "heading": "Code Review Requirements",
+                "body": "All code changes require review and approval from at least one other engineer prior to merging into the production branch. Reviewers verify that the change does not introduce security vulnerabilities or violate coding standards."
+            },
+            {
+                "heading": "Testing Requirements",
+                "body": "Changes are tested in a non-production environment prior to deployment. Automated tests are run as part of the deployment pipeline, and changes that fail testing are blocked from reaching production."
+            },
+            {
+                "heading": "Deployment Approval",
+                "body": "Deployments to production require approval based on the risk level of the change. High-risk changes, such as those affecting authentication or data handling, require sign-off from the Security Officer."
+            },
+            {
+                "heading": "Rollback Procedure",
+                "body": "{{companyName}} maintains the ability to roll back any production deployment in the event of an issue. Rollback procedures are documented and tested as part of the deployment process."
+            }
+        ]
+    },
+    "Vulnerability Management Policy": {
+        "controls": {
+            "SOC 2": "CC7.1",
+            "ISO 27001": "A.12.6.1"
+        },
+        "purpose": "This policy establishes the process by which {{companyName}} identifies, evaluates, and remediates security vulnerabilities in its systems and applications to reduce the risk of exploitation.",
+        "scope": "This policy applies to all production systems, applications, and infrastructure components owned or operated by {{companyName}}, including third-party software dependencies.",
+        "sections": [
+            {
+                "heading": "Vulnerability Scanning",
+                "body": "Automated vulnerability scanning is performed on production systems and application dependencies on a regular, ongoing basis. Identified vulnerabilities are logged and assigned a severity rating based on industry-standard scoring (e.g. CVSS)."
+            },
+            {
+                "heading": "Remediation Timelines",
+                "body": "Critical vulnerabilities are remediated within 7 days of identification. High severity vulnerabilities are remediated within 30 days. Medium and low severity vulnerabilities are remediated within 90 days or accepted with documented justification."
+            },
+            {
+                "heading": "Penetration Testing",
+                "body": "{{companyName}} engages a qualified third party to conduct a penetration test of its production environment at least annually. Findings are tracked to remediation in accordance with the timelines defined above."
+            },
+            {
+                "heading": "Dependency Management",
+                "body": "Third-party software dependencies are monitored for known vulnerabilities using automated tooling. Dependencies with critical vulnerabilities are updated or replaced promptly."
+            },
+            {
+                "heading": "Patch Management",
+                "body": "Operating systems and infrastructure components are kept current with security patches. Critical security patches are applied within 14 days of release."
+            }
+        ]
+    },
+    "Audit Logging Policy": {
+        "controls": {
+            "SOC 2": "CC7.2",
+            "ISO 27001": "A.12.4.1, A.12.4.3"
+        },
+        "purpose": "This policy defines the requirements for logging, monitoring, and retaining audit trails of activity across {{companyName}}'s systems to support security monitoring, incident investigation, and compliance requirements.",
+        "scope": "This policy applies to all production systems, applications, and infrastructure that process or store customer data or are critical to business operations.",
+        "sections": [
+            {
+                "heading": "Events Logged",
+                "body": "{{companyName}} logs authentication events, access to sensitive data, administrative actions, and changes to system configuration. Logs capture the user or system responsible, the action taken, and a timestamp."
+            },
+            {
+                "heading": "Log Storage and Protection",
+                "body": "Logs are stored in a centralized, access-controlled logging system separate from the systems generating them, to prevent tampering. Access to logs is restricted to authorized security and engineering personnel."
+            },
+            {
+                "heading": "Log Retention",
+                "body": "Audit logs are retained for a minimum of 12 months to support incident investigation and compliance reporting requirements."
+            },
+            {
+                "heading": "Monitoring and Alerting",
+                "body": "Automated monitoring is configured to alert the Security Officer or on-call engineer of suspicious activity, including repeated failed login attempts, unauthorized access attempts, and unusual data access patterns."
+            },
+            {
+                "heading": "Log Review",
+                "body": "Security logs are reviewed on a regular basis as part of ongoing security monitoring, with findings escalated through the incident response process when appropriate."
+            }
+        ]
+    },
+    "Encryption Policy": {
+        "controls": {
+            "SOC 2": "CC6.1, CC6.7",
+            "ISO 27001": "A.10.1.1",
+            "HIPAA": "164.312(a)(2)(iv)"
+        },
+        "purpose": "This policy defines the requirements for encrypting data at {{companyName}} to protect the confidentiality and integrity of sensitive information both at rest and in transit.",
+        "scope": "This policy applies to all systems, databases, and applications that store or transmit Confidential or Restricted data as defined in the Data Classification Policy.",
+        "sections": [
+            {
+                "heading": "Encryption in Transit",
+                "body": "All data transmitted between clients and {{companyName}} systems, and between internal services, is encrypted using TLS 1.2 or higher. Unencrypted protocols are disabled on all production systems."
+            },
+            {
+                "heading": "Encryption at Rest",
+                "body": "All Confidential and Restricted data stored in databases, file storage, and backups is encrypted at rest using AES-256 or an equivalent industry-standard encryption algorithm."
+            },
+            {
+                "heading": "Key Management",
+                "body": "Encryption keys are managed using a dedicated key management service. Access to encryption keys is restricted to authorized systems and personnel, and keys are rotated on a periodic basis."
+            },
+            {
+                "heading": "Password and Credential Storage",
+                "body": "User passwords are never stored in plaintext. Passwords are hashed using a strong, industry-standard hashing algorithm with appropriate salting before storage."
+            }
+        ]
+    },
+    "Business Continuity Plan": {
+        "controls": {
+            "SOC 2": "A1.2",
+            "ISO 27001": "A.17.1.1, A.17.1.2",
+            "HIPAA": "164.308(a)(7)(i)"
+        },
+        "purpose": "This policy establishes {{companyName}}'s approach to maintaining critical business operations and minimizing downtime in the event of a disruptive incident, such as a system outage, natural disaster, or other emergency.",
+        "scope": "This policy applies to all critical systems, infrastructure, and business processes required to maintain {{companyName}}'s core operations and service availability.",
+        "sections": [
+            {
+                "heading": "Business Impact Analysis",
+                "body": "{{companyName}} maintains an understanding of which systems and processes are critical to business operations, and the maximum tolerable downtime for each, to prioritize recovery efforts during a disruption."
+            },
+            {
+                "heading": "Infrastructure Redundancy",
+                "body": "Production systems are hosted on {{serverLocation}} with redundancy across multiple availability zones to reduce the risk of a single point of failure causing a full service outage."
+            },
+            {
+                "heading": "Continuity Procedures",
+                "body": "In the event of a disruption, designated personnel are responsible for assessing impact, communicating status to stakeholders, and executing recovery procedures to restore critical services."
+            },
+            {
+                "heading": "Plan Testing",
+                "body": "The Business Continuity Plan is reviewed and tested at least annually to confirm that recovery procedures remain effective and that responsible personnel are familiar with their roles."
+            }
+        ]
+    },
+    "Employee Security Training Policy": {
+        "controls": {
+            "SOC 2": "CC1.4",
+            "ISO 27001": "A.7.2.2",
+            "HIPAA": "164.308(a)(5)"
+        },
+        "purpose": "This policy establishes the requirement for {{companyName}} employees to receive security awareness training to reduce the risk of security incidents caused by human error, such as phishing or improper data handling.",
+        "scope": "This policy applies to all employees and contractors of {{companyName}}, regardless of role or department.",
+        "sections": [
+            {
+                "heading": "Onboarding Training",
+                "body": "All new employees complete security awareness training as part of their onboarding process, covering topics including password hygiene, phishing recognition, data handling, and incident reporting."
+            },
+            {
+                "heading": "Annual Refresher Training",
+                "body": "All employees are required to complete refresher security awareness training at least annually to stay current on evolving threats and company policies."
+            },
+            {
+                "heading": "Phishing Simulation",
+                "body": "{{companyName}} conducts periodic phishing simulation exercises to assess employee awareness and reinforce training. Employees who fail simulations receive additional targeted training."
+            },
+            {
+                "heading": "Role-Specific Training",
+                "body": "Employees with access to production systems or sensitive data receive additional training relevant to their role, including secure coding practices for engineers where applicable."
+            },
+            {
+                "heading": "Training Records",
+                "body": "Completion of security training is tracked for all employees. Records are maintained to demonstrate compliance during audits."
+            }
+        ]
+    },
+    "Physical Security Policy": {
+        "controls": {
+            "ISO 27001": "A.11.1.1, A.11.1.2",
+            "HIPAA": "164.310(a)(1)"
+        },
+        "purpose": "This policy establishes requirements for protecting {{companyName}}'s physical workspaces and any equipment used to access company systems or data from unauthorized physical access.",
+        "scope": "This policy applies to all office locations, remote work environments, and physical devices used to access {{companyName}} systems or data.",
+        "sections": [
+            {
+                "heading": "Office Access Control",
+                "body": "Physical access to company office locations, where applicable, is restricted to authorized employees using badge access or equivalent controls. Visitor access is logged and requires escort by an employee."
+            },
+            {
+                "heading": "Remote Work Security",
+                "body": "Employees working remotely are required to secure their work environment, including locking devices when unattended and avoiding access to company systems from unsecured public networks without a VPN."
+            },
+            {
+                "heading": "Device Security",
+                "body": "Company-issued devices are configured with full-disk encryption, automatic screen lock, and remote wipe capability in the event of loss or theft."
+            },
+            {
+                "heading": "Data Center Security",
+                "body": "{{companyName}} relies on {{serverLocation}}, which maintains its own physical security controls including restricted facility access, surveillance, and environmental controls, covered under the provider's compliance certifications."
+            }
+        ]
+    },
+    "Acceptable Use Policy": {
+        "controls": {
+            "SOC 2": "CC1.4",
+            "ISO 27001": "A.8.1.3"
+        },
+        "purpose": "This policy defines acceptable use of {{companyName}}'s information systems, devices, and resources by employees and contractors to protect against misuse that could compromise security or business operations.",
+        "scope": "This policy applies to all employees and contractors who use {{companyName}} systems, devices, accounts, or network resources.",
+        "sections": [
+            {
+                "heading": "Authorized Use",
+                "body": "Company systems and resources are to be used primarily for business purposes. Limited incidental personal use is permitted provided it does not interfere with job performance or violate any other company policy."
+            },
+            {
+                "heading": "Prohibited Activities",
+                "body": "Employees may not use company systems to access unauthorized data, install unapproved software, circumvent security controls, or engage in any activity that violates applicable law or company policy."
+            },
+            {
+                "heading": "Software and Device Restrictions",
+                "body": "Only approved software may be installed on company-issued devices. Use of personal devices to access company systems requires approval and adherence to applicable security requirements."
+            },
+            {
+                "heading": "Email and Communication",
+                "body": "Company email and communication tools are to be used responsibly. Employees are expected to exercise caution with email attachments and links to reduce the risk of phishing and malware."
+            },
+            {
+                "heading": "Monitoring",
+                "body": "{{companyName}} reserves the right to monitor use of company systems and resources for security and compliance purposes, in accordance with applicable law."
+            }
+        ]
+    },
+    "Privacy Policy": {
+        "controls": {
+            "GDPR": "Article 12, Article 13, Article 14",
+            "HIPAA": "164.520"
+        },
+        "purpose": "This policy describes how {{companyName}} collects, uses, stores, and protects personal data belonging to its users, customers, and website visitors, in accordance with applicable data protection law.",
+        "scope": "This policy applies to all personal data collected by {{companyName}} through its website, application, and any related services, including data collected from EU residents subject to GDPR.",
+        "sections": [
+            {
+                "heading": "Data Collected",
+                "body": "{{companyName}} collects personal data necessary to provide its services, which may include name, email address, account information, and usage data. Data collection is limited to what is necessary for the stated purpose."
+            },
+            {
+                "heading": "Legal Basis for Processing",
+                "body": "{{companyName}} processes personal data based on one or more legal grounds, including the performance of a contract with the user, compliance with legal obligations, legitimate business interests, or user consent where required."
+            },
+            {
+                "heading": "Data Use",
+                "body": "Personal data is used solely to provide and improve {{companyName}}'s services, communicate with users, and meet legal obligations. Data is not sold to third parties."
+            },
+            {
+                "heading": "Data Sharing with Third Parties",
+                "body": "Personal data may be shared with service providers who process data on behalf of {{companyName}} under a signed Data Processing Agreement, strictly for purposes related to delivering the service."
+            },
+            {
+                "heading": "International Data Transfers",
+                "body": "Where personal data is transferred outside the user's country of residence, {{companyName}} ensures appropriate safeguards are in place, such as Standard Contractual Clauses, consistent with applicable law."
+            },
+            {
+                "heading": "Data Retention",
+                "body": "Personal data is retained only for as long as necessary to fulfill the purposes for which it was collected, or as required by applicable law, after which it is securely deleted."
+            }
+        ]
+    },
+    "Data Retention Policy": {
+        "controls": {
+            "GDPR": "Article 5(1)(e)",
+            "HIPAA": "164.316(b)(2)"
+        },
+        "purpose": "This policy defines how long {{companyName}} retains different categories of data, ensuring that data is not kept longer than necessary and is disposed of securely once retention requirements have been met.",
+        "scope": "This policy applies to all personal data, business records, and system data collected, processed, or stored by {{companyName}}.",
+        "sections": [
+            {
+                "heading": "Retention Periods by Data Type",
+                "body": "Account data is retained for the duration of the customer relationship plus a defined post-termination period. Usage logs are retained for 12 months. Financial records are retained as required by applicable tax and accounting law."
+            },
+            {
+                "heading": "Retention Justification",
+                "body": "Each category of data retained beyond its immediate operational use has a documented business or legal justification, reviewed periodically to confirm continued necessity."
+            },
+            {
+                "heading": "Data Deletion Upon Request",
+                "body": "Where required by applicable law, {{companyName}} honors user requests to delete personal data, subject to any legal obligation that requires continued retention of specific records."
+            },
+            {
+                "heading": "Secure Disposal",
+                "body": "Data that has reached the end of its retention period is securely and permanently deleted using methods appropriate to the storage medium, preventing recovery of the deleted data."
+            },
+            {
+                "heading": "Backup Data Retention",
+                "body": "Deleted data may persist in encrypted backups for a limited period consistent with the Data Backup Policy, after which it is purged in the normal backup rotation cycle."
+            }
+        ]
+    },
+    "Data Subject Rights Policy": {
+        "controls": {
+            "GDPR": "Article 15, Article 16, Article 17, Article 20"
+        },
+        "purpose": "This policy establishes the process by which {{companyName}} responds to requests from individuals exercising their data protection rights under applicable law, including access, correction, deletion, and data portability requests.",
+        "scope": "This policy applies to all personal data processed by {{companyName}} relating to EU residents and any other individuals afforded data subject rights under applicable law.",
+        "sections": [
+            {
+                "heading": "Right of Access",
+                "body": "Individuals may request confirmation of whether {{companyName}} processes their personal data, and if so, request a copy of that data along with information about how it is processed."
+            },
+            {
+                "heading": "Right to Rectification",
+                "body": "Individuals may request correction of inaccurate or incomplete personal data held by {{companyName}}. Requests are reviewed and, where verified, corrected promptly."
+            },
+            {
+                "heading": "Right to Erasure",
+                "body": "Individuals may request deletion of their personal data. {{companyName}} honors such requests unless retention is required for legal compliance or other legitimate purposes permitted under applicable law."
+            },
+            {
+                "heading": "Right to Data Portability",
+                "body": "Individuals may request a copy of their personal data in a structured, commonly used, machine-readable format to facilitate transfer to another service provider."
+            },
+            {
+                "heading": "Request Handling Process",
+                "body": "{{companyName}} verifies the identity of the requester, processes valid requests within the timeframe required by applicable law (generally within 30 days), and maintains a log of all data subject requests received and their resolution."
+            }
+        ]
+    },
+    "Cookie Policy": {
+        "controls": {
+            "GDPR": "Article 5, ePrivacy Directive"
+        },
+        "purpose": "This policy explains how {{companyName}} uses cookies and similar tracking technologies on its website and application, and how users can control their cookie preferences.",
+        "scope": "This policy applies to all cookies and tracking technologies used on {{companyName}}'s website and web application.",
+        "sections": [
+            {
+                "heading": "Types of Cookies Used",
+                "body": "{{companyName}} uses essential cookies required for the website to function, as well as analytics cookies to understand usage patterns. Marketing or advertising cookies, if used, are clearly disclosed separately."
+            },
+            {
+                "heading": "Cookie Consent",
+                "body": "Where required by applicable law, {{companyName}} obtains user consent before placing non-essential cookies, through a cookie consent banner that allows users to accept or reject specific cookie categories."
+            },
+            {
+                "heading": "Managing Cookie Preferences",
+                "body": "Users can manage or withdraw their cookie consent at any time through the cookie preference center on {{companyName}}'s website, or by adjusting their browser settings to block or delete cookies."
+            },
+            {
+                "heading": "Third-Party Cookies",
+                "body": "Some cookies may be placed by third-party service providers, such as analytics platforms. {{companyName}} requires these providers to handle data in accordance with applicable data protection law."
+            }
+        ]
+    },
+    "Data Breach Notification Policy": {
+        "controls": {
+            "GDPR": "Article 33, Article 34",
+            "HIPAA": "164.404, 164.408"
+        },
+        "purpose": "This policy defines the process by which {{companyName}} identifies, assesses, and notifies affected individuals and authorities in the event of a personal data breach, in accordance with applicable law.",
+        "scope": "This policy applies to any confirmed unauthorized access, disclosure, alteration, or loss of personal data processed by {{companyName}}.",
+        "sections": [
+            {
+                "heading": "Breach Identification",
+                "body": "Upon detection of a suspected data breach, the Security Officer immediately initiates an assessment to confirm whether personal data was affected, in coordination with the Incident Response Plan."
+            },
+            {
+                "heading": "Risk Assessment",
+                "body": "{{companyName}} assesses the likely risk to affected individuals' rights and freedoms resulting from the breach, considering the nature of the data involved and the potential consequences of the breach."
+            },
+            {
+                "heading": "Regulatory Notification",
+                "body": "Where a breach is likely to result in a risk to individuals, {{companyName}} notifies the relevant supervisory authority within 72 hours of becoming aware of the breach, as required under applicable law."
+            },
+            {
+                "heading": "Notification to Affected Individuals",
+                "body": "Where a breach is likely to result in a high risk to individuals, {{companyName}} notifies affected individuals without undue delay, describing the nature of the breach and recommended protective measures."
+            },
+            {
+                "heading": "Breach Documentation",
+                "body": "{{companyName}} maintains a record of all data breaches, including the facts, effects, and remedial action taken, regardless of whether notification to authorities was required."
+            }
+        ]
+    },
+    "Security Risk Assessment": {
+        "controls": {
+            "HIPAA": "164.308(a)(1)(ii)(A)"
+        },
+        "purpose": "This policy defines the process by which {{companyName}} conducts a security risk assessment specific to electronic protected health information (ePHI), identifying vulnerabilities and threats to the confidentiality, integrity, and availability of health data.",
+        "scope": "This policy applies to all systems that create, receive, maintain, or transmit electronic protected health information on behalf of {{companyName}}.",
+        "sections": [
+            {
+                "heading": "Scope of Assessment",
+                "body": "The risk assessment evaluates all systems, applications, and workflows that handle ePHI, identifying where such data is stored, how it flows through the organization, and who has access to it."
+            },
+            {
+                "heading": "Threat and Vulnerability Identification",
+                "body": "{{companyName}} identifies reasonably anticipated threats to ePHI, including unauthorized access, system failures, and human error, along with existing vulnerabilities that could be exploited."
+            },
+            {
+                "heading": "Risk Rating and Prioritization",
+                "body": "Identified risks to ePHI are rated based on likelihood and potential impact, with findings prioritized for remediation based on the severity of risk to patient data."
+            },
+            {
+                "heading": "Remediation Planning",
+                "body": "For each significant risk identified, {{companyName}} develops and implements a remediation plan with an assigned owner and target completion date, tracked to closure."
+            },
+            {
+                "heading": "Periodic Reassessment",
+                "body": "The security risk assessment specific to ePHI is conducted at least annually, or whenever there is a significant change to systems or processes handling health data."
+            }
+        ]
+    }
+}
