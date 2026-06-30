@@ -6,9 +6,9 @@ export default function Home() {
 
       {/* NAVBAR */}
       <nav className="flex items-center justify-between px-8 py-6 border-b border-white/5">
-        <span className="text-white font-bold text-xl tracking-tight">
+        <Link href="/" className="text-white font-bold text-xl tracking-tight">
           Audit<span className="text-green-400">Pass</span>
-        </span>
+        </Link>
         <div className="flex items-center gap-6">
           <Link href="/generate" className="text-gray-400 hover:text-white text-sm transition-all">
             Generate Policies
