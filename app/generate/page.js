@@ -101,8 +101,21 @@ export default function Generate() {
     const handleBack = () => setCurrentStep(prev => prev - 1)
 
     const handleSubmit = () => {
+        if (formData.policies.length === 0) {
+            alert('Please select at least one policy')
+            return
+        }
+
         localStorage.setItem('auditFormData', JSON.stringify(formData))
-        router.push('/result')
+
+        const isBundle = formData.frameworks.length > 1
+        const checkoutUrl = isBundle
+            ? 'https://auditpass.lemonsqueezy.com/checkout/buy/64b1cb25-3835-41f5-a327-e10a7cab1172'
+            : 'https://auditpass.lemonsqueezy.com/checkout/buy/8d8405a2-1350-4af6-810e-2d298e9d5577'
+
+        const redirectUrl = `${checkoutUrl}?checkout[redirect_url]=https://auditpass.akhnd.com/result`
+
+        window.location.href = redirectUrl
     }
 
     return (
