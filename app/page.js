@@ -5,15 +5,15 @@ export default function Home() {
     <main className="min-h-screen bg-[#0A0A0A] text-white">
 
       {/* NAVBAR */}
-      <nav className="flex items-center justify-between px-8 py-6 border-b border-white/5">
-        <Link href="/" className="text-white font-bold text-xl tracking-tight">
+      <nav className="flex items-center justify-between px-4 py-5 border-b border-white/5">
+        <Link href="/" className="text-white font-bold text-xl tracking-tight hover:opacity-80 transition-all">
           Audit<span className="text-green-400">Pass</span>
         </Link>
-        <div className="flex items-center gap-6">
-          <Link href="/generate" className="text-gray-400 hover:text-white text-sm transition-all">
+        <div className="flex items-center gap-3">
+          <Link href="/generate" className="text-gray-400 hover:text-white text-sm transition-all hidden sm:block">
             Generate Policies
           </Link>
-          <Link href="/generate" className="bg-green-400 text-black text-sm font-bold px-5 py-2 rounded-full hover:bg-green-300 transition-all">
+          <Link href="/generate" className="bg-green-400 text-black text-sm font-bold px-4 py-2 rounded-full hover:bg-green-300 transition-all">
             Get Started →
           </Link>
         </div>
@@ -28,7 +28,7 @@ export default function Home() {
         </div>
 
         {/* Main headline */}
-        <h1 className="text-5xl md:text-7xl font-black text-white max-w-4xl leading-none tracking-tight mb-6">
+        <h1 className="text-4xl md:text-7xl font-black text-white max-w-4xl leading-none tracking-tight mb-6">
           SOC 2 policies that
           <br />
           <span className="text-green-400">don't cost $40,000.</span>
