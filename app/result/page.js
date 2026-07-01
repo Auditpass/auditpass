@@ -89,14 +89,14 @@ export default function Result() {
                         <button
                             onClick={handleDownloadDocx}
                             disabled={downloading}
-                            className="w-full bg-green-400 text-black font-black py-3 rounded-full hover:bg-green-300 transition-all disabled:opacity-50 mb-2"
+                            className="bg-green-400 text-black font-black px-6 py-3 rounded-full hover:bg-green-300 transition-all disabled:opacity-50"
                         >
                             {downloading ? 'Generating...' : 'Download Word (.docx)'}
                         </button>
                         <button
                             onClick={handleDownloadPDF}
                             disabled={downloading}
-                            className="w-full border border-white/20 text-white font-bold py-3 rounded-full hover:bg-white/5 transition-all disabled:opacity-50"
+                            className="border border-white/20 text-white font-black px-6 py-3 rounded-full hover:bg-white/5 transition-all disabled:opacity-50"
                         >
                             {downloading ? 'Generating...' : 'Download PDF'}
                         </button>
