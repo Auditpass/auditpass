@@ -14,6 +14,20 @@ const geistMono = Geist_Mono({
 export const metadata = {
   title: 'AuditPass — SOC 2 Policies in 60 Seconds',
   description: 'Get audit-ready SOC 2, ISO 27001, GDPR and HIPAA policy documents in 60 seconds for $299. Not $12,000/year like Vanta.',
+  openGraph: {
+    title: 'AuditPass — SOC 2 Policies in 60 Seconds',
+    description: 'Audit-ready compliance policies for $299. Not $12,000/year.',
+    url: 'https://auditpass.akhnd.com',
+    siteName: 'AuditPass',
+    images: [{ url: '/opengraph-image.png', width: 1200, height: 630 }],
+    type: 'website',
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'AuditPass — SOC 2 Policies in 60 Seconds',
+    description: 'Audit-ready compliance policies for $299. Not $12,000/year.',
+    images: ['/opengraph-image.png'],
+  },
 }
 
 export default function RootLayout({ children }) {
