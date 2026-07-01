@@ -291,6 +291,64 @@ export default function Home() {
         </div>
       </section>
 
+      {/* FAQ */}
+      <section className="px-6 py-24 border-t border-white/5">
+        <div className="max-w-3xl mx-auto">
+
+          <p className="text-green-400 text-sm font-semibold tracking-widest uppercase text-center mb-4">
+            FAQ
+          </p>
+          <h2 className="text-3xl md:text-5xl font-black text-center mb-16">
+            Questions we get asked
+          </h2>
+
+          <div className="space-y-4">
+
+            {[
+              {
+                q: "Will these policies actually pass a SOC 2 audit?",
+                a: "Our policies are written to align with SOC 2 Trust Service Criteria and ISO 27001 Annex A controls. They give you a solid, auditor-ready starting point. That said, no tool can guarantee audit outcomes — your auditor may request customizations based on your specific environment. Most founders use AuditPass to get 80% of the work done in minutes, then make small adjustments with their auditor."
+              },
+              {
+                q: "What's the difference between SOC 2 Type I and Type II?",
+                a: "Type I is a point-in-time assessment — it checks whether your security controls are designed correctly today. Type II proves those controls actually worked over a 3-12 month period. AuditPass generates the policy documents needed for both. The difference between Type I and II is about evidence collection over time, not about the policies themselves."
+              },
+              {
+                q: "Do I still need a CPA auditor after using AuditPass?",
+                a: "Yes — a licensed CPA firm must sign off on your SOC 2 report. AuditPass doesn't replace the auditor. What it does is eliminate the most time-consuming and expensive part: writing the policies. You come to your auditor with documentation already done, which significantly reduces the time and cost of the audit itself."
+              },
+              {
+                q: "Can I edit the documents after downloading?",
+                a: "Yes. You receive a fully editable Word document (.docx) that you can customize however you need. The policies are yours — modify them to match your exact technical environment, add team names, adjust procedures. The document is a starting point, not a locked template."
+              },
+              {
+                q: "What if I need all 4 frameworks?",
+                a: "The $799 bundle covers SOC 2, ISO 27001, GDPR, and HIPAA — all in one document pack. Policies that overlap between frameworks (like Access Control and Incident Response) are generated once with all relevant control references included, so there's no duplication."
+              },
+              {
+                q: "Is this a subscription?",
+                a: "No. AuditPass is a one-time payment. You pay once, download your documents, and keep them forever. No monthly fees, no renewal, no platform access required after download."
+              },
+              {
+                q: "What if I'm not happy with the output?",
+                a: "We offer refunds within 24 hours of purchase if you haven't downloaded the documents yet. See our refund policy for full details."
+              },
+            ].map((item, i) => (
+              <details key={i} className="border border-white/10 rounded-xl overflow-hidden group">
+                <summary className="px-6 py-4 cursor-pointer text-white font-semibold text-sm flex items-center justify-between list-none hover:bg-white/5 transition-all">
+                  {item.q}
+                  <span className="text-green-400 text-lg ml-4 flex-shrink-0 group-open:rotate-45 transition-transform">+</span>
+                </summary>
+                <div className="px-6 py-4 text-gray-400 text-sm leading-relaxed border-t border-white/10">
+                  {item.a}
+                </div>
+              </details>
+            ))}
+
+          </div>
+        </div>
+      </section>
+
       {/* FOOTER */}
       <footer className="px-8 py-10 border-t border-white/5 flex flex-col items-center gap-6">
         <span className="text-white font-bold">
