@@ -34,8 +34,12 @@ export default function Result() {
     }
 
     if (!formData) return (
-        <main className="min-h-screen bg-[#0A0A0A] text-white flex items-center justify-center">
-            <p className="text-gray-500 text-sm">Loading your policies...</p>
+        <main className="min-h-screen bg-[#0A0A0A] text-white flex flex-col items-center justify-center gap-6">
+            <p className="text-white font-bold text-xl">No policies generated yet.</p>
+            <p className="text-gray-500 text-sm">Fill out the form first to generate your compliance documents.</p>
+            <Link href="/generate" className="bg-green-400 text-black font-black px-8 py-3 rounded-full hover:bg-green-300 transition-all">
+                Generate My Policies →
+            </Link>
         </main>
     )
 
