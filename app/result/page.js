@@ -3,6 +3,7 @@ import { useEffect, useState } from 'react'
 import { generatePolicyDoc } from '../../lib/generateDoc'
 import { generatePolicyPDF } from '../../lib/generatePdf'
 import policyData from '../../data/policies.json'
+import Link from 'next/link'
 
 export default function Result() {
     const [formData, setFormData] = useState(null)
