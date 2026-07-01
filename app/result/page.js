@@ -62,7 +62,7 @@ export default function Result() {
 
             <div className="grid md:grid-cols-[280px_1fr] min-h-[calc(100vh-77px)]">
 
-                {/* Sidebar — policy list */}
+                {/* Sidebar */}
                 <div className="border-r border-white/5 p-6">
                     <p className="text-gray-500 text-xs font-semibold uppercase tracking-widest mb-4">
                         {formData.policies.length} Policies Included
@@ -73,8 +73,8 @@ export default function Result() {
                                 key={policy}
                                 onClick={() => setActivePolicy(policy)}
                                 className={`w-full text-left px-3 py-2.5 rounded-lg text-sm transition-all ${activePolicy === policy
-                                    ? 'bg-green-400/10 text-green-400 font-semibold'
-                                    : 'text-gray-400 hover:bg-white/5'
+                                        ? 'bg-green-400/10 text-green-400 font-semibold'
+                                        : 'text-gray-400 hover:bg-white/5'
                                     }`}
                             >
                                 {policy}
@@ -83,6 +83,9 @@ export default function Result() {
                     </div>
 
                     <div className="mt-10 pt-6 border-t border-white/5">
+                        <p className="text-green-400 text-xs font-semibold uppercase tracking-widest mb-3">
+                            Your purchase includes:
+                        </p>
                         <button
                             onClick={handleDownloadDocx}
                             disabled={downloading}
@@ -98,7 +101,7 @@ export default function Result() {
                             {downloading ? 'Generating...' : 'Download PDF'}
                         </button>
                         <p className="text-gray-600 text-xs text-center mt-3">
-                            One time payment. Instant download.
+                            Both formats included in your {price} purchase.
                         </p>
                     </div>
                 </div>
@@ -146,7 +149,7 @@ export default function Result() {
 
                             <div className="mt-10 p-6 bg-white/5 border border-white/10 rounded-xl text-center">
                                 <p className="text-gray-400 text-sm mb-4">
-                                    This is a preview. Download the full formatted document to get this and all {formData.policies.length} policies.
+                                    Download the full formatted document — all {formData.policies.length} policies included.
                                 </p>
                                 <div className="flex gap-3 justify-center">
                                     <button
@@ -154,14 +157,14 @@ export default function Result() {
                                         disabled={downloading}
                                         className="bg-green-400 text-black font-black px-6 py-3 rounded-full hover:bg-green-300 transition-all disabled:opacity-50"
                                     >
-                                        {downloading ? 'Generating...' : `Download .docx — ${price}`}
+                                        {downloading ? 'Generating...' : 'Download Word (.docx)'}
                                     </button>
                                     <button
                                         onClick={handleDownloadPDF}
                                         disabled={downloading}
                                         className="border border-white/20 text-white font-black px-6 py-3 rounded-full hover:bg-white/5 transition-all disabled:opacity-50"
                                     >
-                                        {downloading ? 'Generating...' : 'Download .pdf'}
+                                        {downloading ? 'Generating...' : 'Download PDF'}
                                     </button>
                                 </div>
                             </div>
@@ -178,24 +181,19 @@ export default function Result() {
 
             {/* FOOTER */}
             <footer className="px-8 py-10 border-t border-white/5 flex flex-col items-center gap-6">
-                <span className="text-white font-bold">
+                <Link href="/" className="text-white font-bold hover:opacity-80 transition-all">
                     Audit<span className="text-green-400">Pass</span>
-                </span>
-
+                </Link>
                 <div className="flex flex-wrap items-center justify-center gap-6 text-xs text-gray-500">
                     <Link href="/privacy" className="hover:text-white transition-all">Privacy</Link>
                     <Link href="/terms" className="hover:text-white transition-all">Terms</Link>
                     <Link href="/refund-policy" className="hover:text-white transition-all">Refunds</Link>
                     <Link href="/contact" className="hover:text-white transition-all">Contact</Link>
                 </div>
-
                 <p className="text-gray-600 text-xs text-center max-w-md">
                     Not legal advice. AuditPass generates policy templates to accelerate your compliance journey.
                 </p>
-
-                <p className="text-gray-600 text-xs">
-                    © 2026 AuditPass
-                </p>
+                <p className="text-gray-600 text-xs">© 2026 AuditPass</p>
             </footer>
         </main>
     )
